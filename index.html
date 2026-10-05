@@ -1,0 +1,535 @@
+<meta charset="utf-8">
+<title>The Gianna Onboarding</title>
+<!--
+SPEC
+PURPOSE   Call study for the Phyla onboarding call with Gianna Distasio (Brand Manager), Mon Oct 5 2026 9:30am PDT.
+DATA      Gmail thread "Re: Thank You For Supporting Our Kansas City Creator Event!" (Sep 30 to Oct 2), Katie's invite,
+          Slack #calls-with-biz-and-brands (Benny Sep 30 write-up), Des/Katie/Benny/Logan Oct 1-2, phyla.com/products.json Oct 5.
+RULES     No em or en dashes. Every decision carries who + when.
+STATE     Checkboxes + notes in localStorage (key phyla-onboarding-v1), per viewer only.
+-->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,400;6..72,500;6..72,600&family=Instrument+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --paper-0:#FBF8F1; --paper-50:#F4EFE4; --paper-100:#ECE5D6; --paper-200:#DDD3BF; --paper-300:#C4B79D;
+  --ink-900:#17212B; --ink-700:#3A4653; --ink-600:#56636F;
+  --navy-600:#243B53; --navy-700:#1B2D40; --navy-50:#E8EDF3;
+  --rust-700:#9A4A1E; --rust-50:#F8E9DE;
+  --moss-700:#3B5F3A; --moss-50:#E6EFE3;
+  --gold-700:#8A5A0B; --gold-50:#F6ECD7;
+  --bg:var(--paper-0); --surface:var(--paper-50); --surface-deep:var(--paper-100);
+  --border:var(--paper-200); --border-strong:var(--paper-300);
+  --text:var(--ink-900); --text-2:var(--ink-700); --text-3:var(--ink-600);
+  --accent:var(--navy-600); --accent-ink:var(--navy-700); --accent-tint:var(--navy-50);
+  --say:var(--moss-700); --say-tint:var(--moss-50);
+  --hold:var(--rust-700); --hold-tint:var(--rust-50);
+  --prop:var(--gold-700); --prop-tint:var(--gold-50);
+  --julia:#243B53; --tony:#8A5A0B; --katherine:#6E3F8A; --katie:#6E3F8A; --logan:#1F6B5C; --gianna:#9A4A1E;
+  --font:"Instrument Sans",system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+  --font-display:"Newsreader",Georgia,"Times New Roman",serif;
+  --font-mono:"JetBrains Mono",ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+  --measure:64ch; --page-w:1040px; --ruler-w:104px;
+  color-scheme:light;
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    --paper-0:#151A20; --paper-50:#1B2129; --paper-100:#222A34; --paper-200:#2F3945; --paper-300:#46525F;
+    --ink-900:#EEE9DE; --ink-700:#C9C3B6; --ink-600:#A9A396;
+    --navy-600:#9DB6D3; --navy-700:#B9CCE2; --navy-50:#22303F;
+    --rust-700:#E2A37E; --rust-50:#3A2A20;
+    --moss-700:#9CC498; --moss-50:#22301F;
+    --gold-700:#E0B66A; --gold-50:#352A16;
+    --julia:#9DB6D3; --tony:#E0B66A; --katherine:#C7A6DD; --katie:#C7A6DD; --logan:#8FCBB9; --gianna:#E2A37E;
+    color-scheme:dark;
+  }
+}
+:root[data-theme="dark"]{
+  --paper-0:#151A20; --paper-50:#1B2129; --paper-100:#222A34; --paper-200:#2F3945; --paper-300:#46525F;
+  --ink-900:#EEE9DE; --ink-700:#C9C3B6; --ink-600:#A9A396;
+  --navy-600:#9DB6D3; --navy-700:#B9CCE2; --navy-50:#22303F;
+  --rust-700:#E2A37E; --rust-50:#3A2A20;
+  --moss-700:#9CC498; --moss-50:#22301F;
+  --gold-700:#E0B66A; --gold-50:#352A16;
+  --julia:#9DB6D3; --tony:#E0B66A; --katherine:#C7A6DD; --katie:#C7A6DD; --logan:#8FCBB9; --gianna:#E2A37E;
+  color-scheme:dark;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+body{font-family:var(--font);font-size:16px;line-height:1.5;color:var(--text);background:var(--bg);-webkit-font-smoothing:antialiased}
+button{font:inherit;color:inherit;background:none;border:none;cursor:pointer}
+a{color:var(--accent)}
+:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+h1,h2,h3{line-height:1.2;letter-spacing:-0.01em;text-wrap:balance}
+h1{font-family:var(--font-display);font-weight:500;font-size:clamp(34px,6vw,52px);letter-spacing:-0.02em}
+h2{font-family:var(--font-display);font-weight:500;font-size:26px}
+h3{font-size:16px;font-weight:600}
+p{max-width:var(--measure)}
+.eyebrow,.lbl{font-family:var(--font-mono);font-size:12px;font-weight:500;letter-spacing:.06em;text-transform:uppercase;color:var(--text-3)}
+.page{max-width:var(--page-w);margin:0 auto;padding-inline:20px;padding-block:0 64px}
+
+.mast{padding-block:48px 24px;display:grid;grid-template-columns:minmax(0,1fr) auto;gap:24px;align-items:end;border-bottom:1px solid var(--border)}
+.mast .eyebrow{margin-bottom:12px}
+.dek{margin-top:12px;font-size:20px;line-height:1.4;color:var(--text-2);max-width:44ch}
+.btn{display:inline-flex;align-items:center;gap:8px;height:36px;padding:0 14px;border-radius:8px;font-size:14px;font-weight:500;border:1px solid var(--border-strong);background:var(--surface);color:var(--text);white-space:nowrap}
+.btn:hover{background:var(--surface-deep)}
+.btn-primary{background:var(--accent);border-color:var(--accent);color:var(--bg)}
+.btn-primary:hover{background:var(--accent-ink)}
+.actions{display:flex;gap:8px;flex-wrap:wrap}
+
+.facts{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px 24px;padding-block:16px;border-bottom:1px solid var(--border);font-size:14px}
+.facts dt{font-family:var(--font-mono);font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:var(--text-3);margin-bottom:2px}
+.facts dd{line-height:1.45}
+
+section{padding-block:40px;border-bottom:1px solid var(--border)}
+section > .head{display:grid;grid-template-columns:var(--ruler-w) minmax(0,1fr);gap:24px;margin-bottom:20px}
+section > .head p{color:var(--text-2);margin-top:6px;font-size:15px}
+.body{margin-left:calc(var(--ruler-w) + 24px)}
+
+/* short version */
+.goals{list-style:none;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
+.goals li{padding:16px;border:1px solid var(--border);border-radius:12px;background:var(--surface)}
+.goals .n{font-family:var(--font-mono);font-size:12px;color:var(--text-3)}
+.goals b{display:block;font-family:var(--font-display);font-weight:500;font-size:20px;line-height:1.25;margin-block:4px 6px}
+.goals span{font-size:14px;color:var(--text-2)}
+.goals li:first-child{background:var(--accent-tint);border-color:transparent}
+
+/* ledger */
+.ledger{width:100%;border-collapse:collapse;font-size:14px}
+.ledger td{padding:10px 12px 10px 0;border-top:1px solid var(--border);vertical-align:top}
+.ledger td:first-child{font-family:var(--font-mono);font-size:12px;color:var(--text-3);white-space:nowrap;width:130px;padding-top:12px}
+.ledger td:last-child{font-size:12px;color:var(--text-3);width:170px}
+.ledger tr.hot td:nth-child(2){color:var(--text);font-weight:500}
+.ledger q{font-style:italic}
+
+/* clock */
+.scroll{overflow-x:auto;-webkit-overflow-scrolling:touch}
+.clock{position:relative;min-width:720px;height:222px;margin-top:8px}
+.track{position:absolute;left:0;right:0;top:112px;height:2px;background:var(--border-strong)}
+.tick{position:absolute;top:104px;width:1px;height:18px;background:var(--border-strong)}
+.tick span{position:absolute;top:46px;left:-14px;font-family:var(--font-mono);font-size:11px;color:var(--text-3);letter-spacing:.04em}
+.band{position:absolute;border-radius:4px}
+.band.content{top:96px;height:34px;background:var(--say);opacity:.9}
+.band.rights{top:136px;height:8px;background:var(--say-tint);border:1px solid var(--say)}
+.band.bfcm{top:40px;height:92px;background:var(--hold-tint);border-left:2px solid var(--hold)}
+.pin{position:absolute;font-size:12px;line-height:1.3;color:var(--text-2)}
+.pin b{display:block;font-family:var(--font-mono);font-size:11px;font-weight:500;letter-spacing:.04em;color:var(--text)}
+.dot{position:absolute;top:106px;width:14px;height:14px;border-radius:50%;background:var(--accent);border:3px solid var(--bg);margin-left:-7px}
+.dot.hold{background:var(--hold)}
+.legend{display:flex;flex-wrap:wrap;gap:8px 20px;font-size:13px;color:var(--text-2);margin-top:8px}
+.legend i{display:inline-block;width:14px;height:10px;border-radius:2px;margin-right:6px;vertical-align:-1px}
+.slips{width:100%;border-collapse:collapse;font-size:14px;margin-top:20px;font-variant-numeric:tabular-nums}
+.slips th{text-align:left;font-family:var(--font-mono);font-size:11px;font-weight:500;letter-spacing:.06em;text-transform:uppercase;color:var(--text-3);padding:8px 12px 8px 0;border-bottom:1px solid var(--border-strong)}
+.slips td{padding:10px 12px 10px 0;border-bottom:1px solid var(--border)}
+.slips tr.now td{font-weight:600}
+.slips tr.late td:last-child{color:var(--hold)}
+
+/* run of show */
+.block{display:grid;grid-template-columns:var(--ruler-w) minmax(0,1fr);gap:24px;padding-block:24px;border-top:1px solid var(--border)}
+.block:first-of-type{border-top:none;padding-top:0}
+.ruler{position:relative;padding-left:16px;border-left:2px solid var(--border-strong)}
+.ruler::before{content:"";position:absolute;left:-6px;top:6px;width:10px;height:10px;border-radius:50%;background:var(--accent);border:2px solid var(--bg)}
+.ruler .t{font-family:var(--font-mono);font-size:20px;font-weight:500;font-variant-numeric:tabular-nums;line-height:1.2}
+.ruler .len{font-family:var(--font-mono);font-size:12px;color:var(--text-3);margin-top:2px}
+.bh{display:flex;flex-wrap:wrap;align-items:baseline;gap:6px 14px;margin-bottom:8px}
+.bh h3{font-family:var(--font-display);font-weight:500;font-size:22px}
+.who{display:inline-flex;align-items:center;gap:6px;font-family:var(--font-mono);font-size:11px;letter-spacing:.06em;text-transform:uppercase;white-space:nowrap}
+.who::before{content:"";width:8px;height:8px;border-radius:50%;background:currentColor}
+.who.julia{color:var(--julia)} .who.tony{color:var(--tony)} .who.katherine{color:var(--katherine)}
+.say{margin-block:10px;padding:10px 14px;border-left:3px solid var(--say);background:var(--say-tint);border-radius:0 8px 8px 0;font-family:var(--font-display);font-size:18px;line-height:1.45;max-width:var(--measure)}
+.say::before{content:"Say";display:block;font-family:var(--font-mono);font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:var(--say);margin-bottom:2px}
+.steps{list-style:none;display:grid;gap:8px;margin-block:10px;max-width:var(--measure)}
+.steps li{font-size:15px;color:var(--text-2);padding-left:18px;position:relative}
+.steps li::before{content:"";position:absolute;left:0;top:.6em;width:7px;height:7px;border-radius:50%;background:var(--border-strong)}
+.steps li b{color:var(--text);font-weight:600}
+.watch{margin-top:10px;font-size:14px;color:var(--text-2);max-width:var(--measure)}
+.watch::before{content:"Watch for  ";font-family:var(--font-mono);font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:var(--hold)}
+.buffer{font-size:14px;color:var(--text-3);padding-top:4px}
+
+/* chips */
+.chip{display:inline-block;font-family:var(--font-mono);font-size:10.5px;font-weight:500;letter-spacing:.06em;text-transform:uppercase;padding:2px 7px;border-radius:999px;vertical-align:2px;white-space:nowrap}
+.chip.agreed{background:var(--say-tint);color:var(--say)}
+.chip.proposed{background:var(--prop-tint);color:var(--prop)}
+.chip.open{background:var(--hold-tint);color:var(--hold)}
+.src{font-size:12px;color:var(--text-3)}
+
+/* questions */
+.qhead{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:12px;margin-bottom:12px}
+.progress{font-family:var(--font-mono);font-size:12px;color:var(--text-3)}
+.qlist{list-style:none;display:grid;gap:0}
+.qrow{display:grid;grid-template-columns:28px minmax(0,1fr);gap:12px;padding-block:14px;border-top:1px solid var(--border)}
+.qrow input[type=checkbox]{width:18px;height:18px;margin-top:3px;accent-color:var(--say)}
+.qrow .qt{font-size:16px;font-weight:500}
+.qrow.done .qt{color:var(--text-3);text-decoration:line-through;text-decoration-color:var(--border-strong)}
+.qrow .why{font-size:13px;color:var(--text-3);margin-top:2px}
+.qrow textarea{width:100%;margin-top:8px;min-height:38px;resize:vertical;font:inherit;font-size:14px;color:var(--text);background:var(--surface);border:1px solid var(--border);border-radius:8px;padding:8px 10px}
+.qrow textarea:focus{border-color:var(--accent);outline:none}
+.qgroup{font-family:var(--font-mono);font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:var(--text-3);padding-block:18px 6px}
+
+/* options + cards */
+.opts{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
+.opt{padding:16px;border:1px solid var(--border);border-radius:12px;font-size:14px;color:var(--text-2);display:flex;flex-direction:column;gap:8px}
+.opt h3{color:var(--text)}
+.opt.rec{border:2px solid var(--accent)}
+.opt .tag{font-family:var(--font-mono);font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:var(--accent)}
+.angles{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;margin-top:16px}
+.angle{padding:14px 16px;background:var(--surface);border-radius:10px;font-size:14px;color:var(--text-2)}
+.angle b{display:block;color:var(--text);font-size:15px;margin-bottom:4px}
+.note{margin-top:16px;font-size:14px;color:var(--text-2);max-width:var(--measure)}
+
+/* landmines */
+.mines{list-style:none;display:grid;gap:12px}
+.mine{display:grid;grid-template-columns:150px minmax(0,1fr);gap:16px;padding:14px 16px;border-radius:10px;background:var(--hold-tint)}
+.mine .k{font-family:var(--font-mono);font-size:12px;font-weight:500;letter-spacing:.05em;text-transform:uppercase;color:var(--hold);padding-top:2px}
+.mine p{font-size:14px;color:var(--text-2)}
+.mine p b{color:var(--text)}
+
+.agreed-list{list-style:none;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px 24px;font-size:14px;color:var(--text-2)}
+.agreed-list li{padding-left:18px;position:relative}
+.agreed-list li::before{content:"";position:absolute;left:0;top:.45em;width:9px;height:5px;border-left:2px solid var(--say);border-bottom:2px solid var(--say);transform:rotate(-45deg)}
+
+.two{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:32px}
+.checks{list-style:none;display:grid;gap:10px;font-size:14px;color:var(--text-2)}
+.checks label{display:grid;grid-template-columns:22px minmax(0,1fr);gap:8px;cursor:pointer}
+.checks input{width:16px;height:16px;margin-top:2px;accent-color:var(--say)}
+.checks b{color:var(--text)}
+
+.sources{list-style:none;display:grid;gap:6px;font-size:13px;color:var(--text-2)}
+.sources li{padding-left:14px;position:relative}
+.sources li::before{content:"";position:absolute;left:0;top:.6em;width:5px;height:5px;border-radius:50%;background:var(--border-strong)}
+
+.toast{position:fixed;left:50%;bottom:calc(20px + env(safe-area-inset-bottom,0px));transform:translateX(-50%);background:var(--text);color:var(--bg);padding:10px 16px;border-radius:8px;font-size:14px;opacity:0;pointer-events:none;transition:opacity .2s}
+.toast.on{opacity:1}
+
+@media (max-width:820px){
+  .facts{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .goals,.opts,.angles{grid-template-columns:1fr}
+  section > .head{grid-template-columns:1fr;gap:6px}
+  .body{margin-left:0}
+  .block{grid-template-columns:1fr;gap:10px}
+  .ruler{display:flex;gap:12px;align-items:baseline}
+  .two,.agreed-list{grid-template-columns:1fr}
+  .mine{grid-template-columns:1fr;gap:4px}
+  .ledger td:last-child{display:none}
+  .mast{grid-template-columns:1fr}
+}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+
+.who.katie{color:var(--katie)} .who.logan{color:var(--logan)} .who.gianna{color:var(--gianna)}
+.agreed-list b{color:var(--text);font-weight:600}
+.cardbar{display:flex;height:44px;border-radius:8px;overflow:hidden;font-size:13px;font-weight:500;max-width:640px}
+.cardbar .seg{display:flex;align-items:center;padding-inline:10px;white-space:nowrap;overflow:hidden}
+.cardbar .serum{background:var(--say);color:var(--bg)}
+.cardbar .tax{background:var(--prop-tint);color:var(--prop);justify-content:center;padding-inline:2px}
+.cardbar .buffer{background:var(--surface-deep);color:var(--text-2)}
+.cardscale{position:relative;max-width:640px;height:18px;margin-top:6px;font-family:var(--font-mono);font-size:11px;color:var(--text-3)}
+.cardscale span{position:absolute;top:0}
+.cardscale span:nth-child(1){left:0}
+.cardscale span:nth-child(2){left:73.3%;transform:translateX(-50%)}
+.cardscale span:nth-child(3){right:0}
+.slips td:nth-child(3){color:var(--text-2)}
+</style>
+<div class="page">
+
+<header class="mast">
+  <div>
+    <div class="eyebrow">Benable x Phyla · call study · Mon Oct 5 2026</div>
+    <h1>The Gianna Onboarding</h1>
+    <p class="dek">Gianna answered the logistics on Friday. These 30 minutes are for the message: how creators explain phages without it feeling like an ad.</p>
+  </div>
+  <div class="actions">
+    <button class="btn btn-primary" id="copyNotes" type="button">Copy call notes</button>
+    <button class="btn" id="resetNotes" type="button">Reset</button>
+  </div>
+</header>
+
+<dl class="facts">
+  <div><dt>When</dt><dd>9:30 to 10:00am PDT, Zoom<br><span class="src">Katie's Calendly invite, sent Oct 2</span></dd></div>
+  <div><dt>Phyla</dt><dd><span class="who gianna">Gianna</span> Distasio, Brand Manager<br><span class="who gianna">Kiana</span> marketing + social<br><span class="who gianna">Grace</span> Murray, role unknown</dd></div>
+  <div><dt>Benable</dt><dd><span class="who katie">Katie</span> lead<br><span class="who julia">Julia</span> brief + product<br><span class="who logan">Logan</span> <span class="who tony">Tony</span> invited</dd></div>
+  <div><dt>Deal</dt><dd>$1,999/mo, 25 creators, signed Oct 1, October paid<br><span class="src">admin org 33</span></dd></div>
+</dl>
+
+<section id="short">
+  <div class="head"><div class="lbl">Short version</div><div><h2>Three things to leave with</h2></div></div>
+  <ol class="goals">
+    <li><span class="n">1 · the one that matters</span><b>The message, in her words</b><span>What a viewer should understand about phages, what creators can claim, what they must never say.</span></li>
+    <li><span class="n">2</span><b>Shopify connected, Target runs clear</b><span>Connect the store live on the call. Confirm what the 5 in-store videos must show.</span></li>
+    <li><span class="n">3</span><b>Creators + approvals settled</b><span>Who counts as "acne experience", who approves, content review on or off. Then launch this week.</span></li>
+  </ol>
+</section>
+
+<section id="where">
+  <div class="head"><div class="lbl">Where she is</div><div><h2>Signed Thursday, paid Friday, waiting on this call</h2><p>All times PDT. Portal access comes after this call (Tony + Julia, Oct 1). Bold rows shape today.</p></div></div>
+  <div class="body scroll">
+  <table class="ledger">
+    <tr class="hot"><td>Sep 30</td><td>Sales call with Tony. Was about to sign minisocial (about $300/creator): <q>the numbers don't even make sense to do that.</q> Goal: <q>if we can make phages like the new peptide.</q> Scrolls past anything that feels like an ad. Kiana used to DM 50 to 100 creators a day. Unlimited rematching landed. Wants more events.</td><td>Benny write-up, #calls-with-biz-and-brands</td></tr>
+    <tr><td>Sep 30</td><td>Tony: a $50 to $100 offer gets 5K to 50K creators; about 8 weeks end to end; Target runs could get content up in October.</td><td>Gmail, Tony</td></tr>
+    <tr><td>Oct 1, 9:00am</td><td>Blair: split can't be built in the portal yet, so 5 Target runs + 20 shipped, coordinated by hand. $75 card was an example, $375 invoice for 5.</td><td>Gmail, Blair</td></tr>
+    <tr><td>Oct 1, 9:44am</td><td>Tony: no bringing gifted product into Target. The Target launch becomes a core message in the 20 shipped videos (voiceover, on-screen text, logo).</td><td>Gmail, Tony</td></tr>
+    <tr><td>Oct 1, 10:44am</td><td>Platform choice left for onboarding (Blair). Payment schedule confirmed in the updated contract. <q>All signed.</q></td><td>Gmail, Gianna</td></tr>
+    <tr><td>Oct 1</td><td>Des: @phylaskin on IG and TikTok won't verify on the brand page. Katie flagged the first PDF put the free month in December (fixed in the updated contract).</td><td>Slack, Des + Katie</td></tr>
+    <tr class="hot"><td>Oct 2, 1:31pm</td><td>Gianna answers your pre-call email: Serum for both groups, 611 Target stores with a Beauty Studio (sheet), $75 card OK, Shopify or direct, acne experience, women teens to 30s, mix of sizes, payment done. Creator examples <q>shortly</q>: not received as of this morning.</td><td>Gmail, Gianna</td></tr>
+  </table>
+  </div>
+</section>
+
+<section id="known">
+  <div class="head"><div class="lbl">Don't re-ask</div><div><h2>Already settled</h2><p>Each with who and when. Confirm out loud in one sentence, then move on.</p></div></div>
+  <div class="body">
+  <ul class="agreed-list">
+    <li><b>Product:</b> Phyla Serum (Acne Phage Serum) for all 25 <span class="chip agreed">Gianna, Oct 2</span></li>
+    <li><b>Target runs:</b> 5 creators buy the Serum in store <span class="chip agreed">Gianna, Oct 2</span></li>
+    <li><b>Stores:</b> 611 Targets, any with a Beauty Studio, list in a Google Sheet <span class="chip agreed">Gianna, Oct 2</span></li>
+    <li><b>Gift card:</b> $75 per creator, $375 invoiced on top of the plan <span class="chip agreed">Gianna, Oct 2</span></li>
+    <li><b>Fulfillment:</b> Shopify (phylaskincare.myshopify.com) or direct, "whatever is fastest" <span class="chip agreed">Gianna, Oct 2</span></li>
+    <li><b>Creators:</b> acne experience or natural fit, women teens to 30s, any location, mix of sizes <span class="chip agreed">Gianna, Oct 2</span></li>
+    <li><b>Split:</b> 5 Target + 20 shipped this month, all e-commerce in November <span class="chip agreed">Gianna + Blair, Oct 1</span></li>
+    <li><b>No gifted product in Target</b> for campaign 1 <span class="chip agreed">Tony, Oct 1</span></li>
+    <li><b>Billing:</b> $1,999 Oct (paid) and Nov, $0 Dec, monthly from Jan <span class="chip agreed">Blair, Oct 1</span></li>
+    <li><b>Lead:</b> Katie <span class="chip agreed">Tony, Sep 30</span></li>
+  </ul>
+  </div>
+</section>
+
+<section id="card">
+  <div class="head"><div class="lbl">The $75 card</div><div><h2>What one Target run costs</h2><p>Serum at $55 on phyla.com (checked this morning). The Target shelf price is not verified: ask.</p></div></div>
+  <div class="body">
+    <div class="cardbar" role="img" aria-label="75 dollar gift card: 55 dollars serum, up to about 6 dollars sales tax, about 14 dollars left for the trip">
+      <span class="seg serum" style="width:73.3%">Serum $55</span>
+      <span class="seg tax" style="width:8%">tax</span>
+      <span class="seg buffer" style="width:18.7%">buffer</span>
+    </div>
+    <div class="cardscale"><span>$0</span><span>$55</span><span>$75</span></div>
+    <p class="note">5 cards x $75 = <b>$375</b>, invoiced to Phyla, Benable buys and hands out the cards and checks each receipt (Blair, Oct 1). If the Target price is above about $65, the card no longer covers Serum + tax everywhere.</p>
+  </div>
+</section>
+
+<section id="clock">
+  <div class="head"><div class="lbl">Two tracks</div><div><h2>Target content in October, shipped content in November</h2><p>If she launches this week.</p></div></div>
+  <div class="body scroll">
+    <table class="slips">
+      <tr><th>Track</th><th>Creators</th><th>Steps</th><th>Content</th></tr>
+      <tr class="now"><td>Target runs</td><td>5</td><td>Match near a Beauty Studio store, send $75 card, store visit, film, post</td><td>Late October (Tony told her October)</td></tr>
+      <tr><td>Shipped</td><td>20</td><td>Launch, match, she approves, orders ship from Shopify, post within 10 days of delivery</td><td>November</td></tr>
+    </table>
+  </div>
+</section>
+
+<section id="run">
+  <div class="head"><div class="lbl">Run of show</div><div><h2>28 minutes, 2 of buffer</h2><p>Katie leads and owns logistics. Julia takes the brief. Logan takes creators if he joins.</p></div></div>
+
+  <div class="block">
+    <div class="ruler"><div class="t">0:00</div><div class="len">2 MN</div></div>
+    <div>
+      <div class="bh"><h3>Intros</h3><span class="who katie">Katie</span></div>
+      <div class="say">So excited to have you! Quick intros first: Grace, we haven't met yet, what's your role on the team?</div>
+      <div class="say">Plan for today: the message for creators, how the Target runs work, the creators you want, then we connect Shopify together so you can launch this week.</div>
+    </div>
+  </div>
+
+  <div class="block">
+    <div class="ruler"><div class="t">2:00</div><div class="len">8 MN</div></div>
+    <div>
+      <div class="bh"><h3>The message</h3><span class="who julia">Julia</span></div>
+      <div class="say">You said you want to make phages the new peptide. If someone watches a 30 second video, what's the one thing they should walk away understanding?</div>
+      <ul class="steps">
+        <li><b>Claims:</b> what can creators say about acne, what's off limits? Is there an approved claims list?</li>
+        <li><b>Results:</b> creators post within 10 days of getting the Serum. First impressions and routine videos, no before/after: OK?</li>
+        <li><b>Must-includes:</b> "now at Target Beauty Studio", handles, hashtags. Confirm @phylaskin on IG + TikTok.</li>
+        <li><b>Where to send viewers:</b> Target, target.com or phyla.com? Any code?</li>
+        <li><b>Examples:</b> the videos she loved and didn't. Ask to see them now or by email today.</li>
+      </ul>
+      <p class="src">Why first: on Sep 30 she said she scrolls past anything that feels like an ad, but if the science is missing <q>the brand gets lost</q>. Briefs and review matter most for her.</p>
+    </div>
+  </div>
+
+  <div class="block">
+    <div class="ruler"><div class="t">10:00</div><div class="len">5 MN</div></div>
+    <div>
+      <div class="bh"><h3>The Target runs</h3><span class="who katie">Katie</span></div>
+      <div class="say">Here's how the five Target runs work: we invoice the $375, buy the gift cards, match each creator near a Beauty Studio store, and check every receipt. You don't touch any of it.</div>
+      <ul class="steps">
+        <li><b>On camera:</b> the Beauty Studio shelf, the purchase, the receipt? Anything to avoid filming?</li>
+        <li><b>Out of stock:</b> OK to go to another store, or use target.com pickup?</li>
+        <li><b>Dates:</b> any date the Target content should land by?</li>
+        <li><b>Price check:</b> what does the Serum cost at Target?</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="block">
+    <div class="ruler"><div class="t">15:00</div><div class="len">5 MN</div></div>
+    <div>
+      <div class="bh"><h3>Creators</h3><span class="who logan">Logan</span><span class="who katie">Katie</span></div>
+      <div class="say">We've already started pre-matching with a dermatological focus. A couple of things to make sure the first batch is right.</div>
+      <ul class="steps">
+        <li><b>Acne experience:</b> current acne, past acne, or also estheticians and derm-adjacent creators who treat it?</li>
+        <li><b>Age:</b> your audience starts at teens. Fine if our creators are 18+ and speak to that age?</li>
+        <li><b>Platform:</b> TikTok, Instagram, or each creator's main one? We recommend main platform for stronger matches.</li>
+      </ul>
+      <div class="say">And if a batch isn't right, we keep rematching until you're happy.</div>
+    </div>
+  </div>
+
+  <div class="block">
+    <div class="ruler"><div class="t">20:00</div><div class="len">4 MN</div></div>
+    <div>
+      <div class="bh"><h3>Approvals, rights, team</h3><span class="who katie">Katie</span><span class="who julia">Julia</span></div>
+      <ul class="steps">
+        <li><b>Creator approvals:</b> who signs off, Gianna, Kiana, the CEO?</li>
+        <li><b>Content review:</b> want to see each video before it posts? Given the science, a brand review on campaign 1 makes sense.</li>
+        <li><b>Use of content:</b> reposting on your socials and site, or also ads? If ads, we come back with options.</li>
+        <li><b>Portal seats:</b> who gets access?</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="block">
+    <div class="ruler"><div class="t">24:00</div><div class="len">4 MN</div></div>
+    <div>
+      <div class="bh"><h3>Connect Shopify, then close</h3><span class="who katie">Katie</span></div>
+      <div class="say">Last thing: who has admin on your Shopify? It's about 5 clicks, can we do it together right now?</div>
+      <div class="say">Next: you get your portal link today, you launch, we review the brief, and you'll see creators to approve right after. Target content in October, the shipped videos in November.</div>
+      <p class="src">Portal access comes after this call (Tony + Julia, Oct 1). Katie's usual 4-step launch email is ready to send.</p>
+    </div>
+  </div>
+
+  <div class="block">
+    <div class="ruler"><div class="t">28:00</div><div class="len">2 MN</div></div>
+    <div><div class="bh"><h3>Buffer</h3></div><p class="buffer">If there's room: events. They loved getting photos and creator lists from Austin and KC. Olivia follows up (Tony, Sep 30).</p></div>
+  </div>
+</section>
+
+<section id="questions">
+  <div class="head"><div class="lbl">Questions</div><div><h2>What to get answered</h2><p>Tick as you go, type the answer in the box. Notes stay in this browser only. "Copy call notes" puts them on your clipboard for the debrief.</p></div></div>
+  <div class="body">
+    <div class="qhead"><span class="progress" id="progress"></span></div>
+    <ul class="qlist" id="qlist"></ul>
+  </div>
+</section>
+
+<section id="mines">
+  <div class="head"><div class="lbl">Landmines</div><div><h2>Don't raise these. If she does, here's the line.</h2></div></div>
+  <div class="body">
+  <ul class="mines">
+    <li class="mine"><span class="k">Banking months</span><p><b>Don't bring it up.</b> Tony asked Benny on Oct 2: the contract only says <q>25 creators per month</q>, nothing on rollover. <span class="chip open">Open, Tony</span></p></li>
+    <li class="mine"><span class="k">Claims</span><p><b>We don't write the claims, she does.</b> The Serum page lists no drug facts. Ask for her approved list; don't suggest acne wording yourself.</p></li>
+    <li class="mine"><span class="k">Ad rights prices</span><p>If she wants ads: say we'll come back with options. The extend prices are still placeholders (Tony, Oct 2).</p></li>
+    <li class="mine"><span class="k">Gifted product in Target</span><p>Already a no for campaign 1 (Tony, Oct 1). If it comes back: "happy to test it in a later campaign".</p></li>
+    <li class="mine"><span class="k">Splitting in the portal</span><p>The 5/20 split is manual for now. Don't promise a date for it in the product.</p></li>
+  </ul>
+  </div>
+</section>
+
+<section id="prep">
+  <div class="head"><div class="lbl">Before + after</div><div><h2>Five minutes of prep, five of follow-up</h2></div></div>
+  <div class="body two">
+    <div><h3 style="margin-bottom:10px">Before 9:30</h3><ul class="checks" id="pre"></ul></div>
+    <div><h3 style="margin-bottom:10px">After the call</h3><ul class="checks" id="post"></ul></div>
+  </div>
+</section>
+
+<section id="sources" style="border-bottom:none">
+  <div class="head"><div class="lbl">Sources</div><div><h2>Where every line comes from</h2></div></div>
+  <div class="body">
+  <ul class="sources">
+    <li>Gmail, "Re: Thank You For Supporting Our Kansas City Creator Event!": Tony Sep 30 (x2), Gianna + Blair + Tony Oct 1, Katie Oct 1 (billing + Calendly), Julia Oct 2 10:59am, Gianna Oct 2 1:31pm.</li>
+    <li>Gmail, Katie's invite "Gianna Distasio and Katie Scalzo, Mon Oct 5 9:30am" (Gianna, Kiana, Grace Murray, Julia, Logan, Tony).</li>
+    <li>Slack #calls-with-biz-and-brands, Benny's Sep 30 call write-up + Skeepers note.</li>
+    <li>Slack: Des Oct 1 (handles not verifying), Katie Oct 1 (contract month + launch steps), Benny Oct 2 (Shopify store, gift card, contract banking), #notifs-brand-portal-payments Oct 2 ($1,999 active), Logan DM Oct 2 (derm focus).</li>
+    <li>phyla.com/products.json, Oct 5: Acne Phage Serum $55, Acne Phage System $99, no drug facts listed.</li>
+  </ul>
+  </div>
+</section>
+
+</div>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<script>
+(function(){
+  var KEY='phyla-onboarding-v1';
+  var Q=[
+    {g:'The message',id:'q1',t:'What should a viewer understand about phages after 30 seconds?',w:'Her Sep 30 goal: "make phages like the new peptide". This is the brief headline.'},
+    {g:'The message',id:'q2',t:'What can creators claim about acne, and what is off limits? Approved claims list?',w:'The Serum page lists no drug facts. She writes the claims, we put them in the brief.'},
+    {g:'The message',id:'q3',t:'First impressions and routine videos, no before/after: OK?',w:'Creators post within 10 days of getting the Serum.'},
+    {g:'The message',id:'q4',t:'Must-includes: "now at Target Beauty Studio", handles, hashtags. Is @phylaskin right on IG + TikTok?',w:'The handles are not verifying on our side (Des, Oct 1).'},
+    {g:'The message',id:'q5',t:'Where should viewers go: Target, target.com or phyla.com? Any code?',w:'The call to action in the brief.'},
+    {g:'The message',id:'q6',t:'Creator videos you loved and didn’t: can you share them today?',w:'Promised Oct 2 ("shortly"), not received.'},
+    {g:'Target runs',id:'q7',t:'What must the in-store video show? Anything to avoid filming?',w:'Shelf, purchase, receipt. Tony flagged store staff confusion as a risk.'},
+    {g:'Target runs',id:'q8',t:'If a store is out of Serum: another store, or target.com pickup?',w:'Fallback before it happens.'},
+    {g:'Target runs',id:'q9',t:'What does the Serum cost at Target? Any date the Target content should land by?',w:'$55 on phyla.com. $75 covers it plus tax if the Target price is similar.'},
+    {g:'Creators',id:'q10',t:'"Acne experience": current, past, or also estheticians and derm-adjacent creators?',w:'Logan, Oct 2: dermatological focus, not only acne-prone skin.'},
+    {g:'Creators',id:'q11',t:'Fine if creators are 18+ and speak to a teen audience?',w:'Her target starts at teens.'},
+    {g:'Creators',id:'q12',t:'Platform: TikTok, Instagram, or each creator’s main one?',w:'Blair left this for onboarding (Oct 1). We recommend main platform.'},
+    {g:'Approvals + team',id:'q13',t:'Who approves creators? Content review before posting, on or off?',w:'Brand review on campaign 1 fits a science-led brand.'},
+    {g:'Approvals + team',id:'q14',t:'Reposting only, or ads too?',w:'If ads, we come back with rights options. No prices on the call.'},
+    {g:'Approvals + team',id:'q15',t:'Who gets portal seats? Who has Shopify admin, can we connect now?',w:'About 5 clicks. Store: phylaskincare.myshopify.com.'}
+  ];
+  var PRE=[
+    {id:'p1',h:'<b>Zoom test with Katie</b> done.'},
+    {id:'p2',h:'<b>Open</b> Gianna’s Target store sheet and admin org 33 (brand page, handles).'},
+    {id:'p3',h:'<b>Agree with Katie</b> who asks what: Katie logistics, you the message.'},
+    {id:'p4',h:'<b>Start Granola</b> (or the Zoom notetaker).'}
+  ];
+  var POST=[
+    {id:'a1',h:'<b>Katie:</b> portal link + 4-step launch email to Gianna today.'},
+    {id:'a2',h:'<b>Des:</b> brief from her claims, must-includes and examples.'},
+    {id:'a3',h:'<b>Logan:</b> creator criteria + store-location matching for the 5.'},
+    {id:'a4',h:'<b>Nisarg:</b> @phylaskin verification, Shopify if not connected live.'},
+    {id:'a5',h:'<b>Invoice:</b> $375 for the 5 gift cards (who sends it?).'},
+    {id:'a6',h:'<b>Team debrief</b> in Slack, drafted in chat first.'}
+  ];
+  var state={};
+  try{state=JSON.parse(localStorage.getItem(KEY)||'{}')||{}}catch(e){state={}}
+  function save(){try{localStorage.setItem(KEY,JSON.stringify(state))}catch(e){}}
+  function esc(s){return String(s).replace(/[&<>"]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]})}
+  var ql=document.getElementById('qlist'),html='',last='';
+  Q.forEach(function(q){
+    if(q.g!==last){html+='<li class="qgroup">'+q.g+'</li>';last=q.g}
+    var s=state[q.id]||{};
+    html+='<li class="qrow'+(s.c?' done':'')+'" data-id="'+q.id+'"><input type="checkbox" id="c-'+q.id+'" aria-label="Asked"'+(s.c?' checked':'')+'>'+
+      '<div><label for="c-'+q.id+'" class="qt">'+esc(q.t)+'</label><div class="why">'+esc(q.w)+'</div>'+
+      '<textarea id="n-'+q.id+'" rows="1" placeholder="Her answer">'+esc(s.n||'')+'</textarea></div></li>';
+  });
+  ql.innerHTML=html;
+  function prog(){var n=Q.filter(function(q){return (state[q.id]||{}).c}).length;document.getElementById('progress').textContent=n+' of '+Q.length+' asked'}
+  prog();
+  ql.addEventListener('change',function(e){
+    if(e.target.type!=='checkbox')return;
+    var row=e.target.closest('.qrow'),id=row.dataset.id;
+    state[id]=state[id]||{};state[id].c=e.target.checked;row.classList.toggle('done',e.target.checked);save();prog();
+  });
+  ql.addEventListener('input',function(e){
+    if(e.target.tagName!=='TEXTAREA')return;
+    var id=e.target.closest('.qrow').dataset.id;state[id]=state[id]||{};state[id].n=e.target.value;save();
+  });
+  function checks(el,list){
+    el.innerHTML=list.map(function(i){return '<li><label><input type="checkbox" id="k-'+i.id+'"'+(state[i.id]?' checked':'')+'><span>'+i.h+'</span></label></li>'}).join('');
+    el.addEventListener('change',function(e){state[e.target.id.slice(2)]=e.target.checked;save()});
+  }
+  checks(document.getElementById('pre'),PRE);
+  checks(document.getElementById('post'),POST);
+  var toast=document.getElementById('toast'),tt;
+  function say(m){toast.textContent=m;toast.classList.add('on');clearTimeout(tt);tt=setTimeout(function(){toast.classList.remove('on')},1800)}
+  document.getElementById('copyNotes').addEventListener('click',function(){
+    var lines=['Phyla onboarding call, Mon Oct 5 2026 (Gianna Distasio)',''];
+    Q.forEach(function(q){var s=state[q.id]||{};lines.push((s.c?'[x] ':'[ ] ')+q.t);lines.push('    '+((s.n||'').trim()||'no answer noted'))});
+    var txt=lines.join('\n');
+    if(navigator.clipboard&&navigator.clipboard.writeText){
+      navigator.clipboard.writeText(txt).then(function(){say('Call notes copied')},function(){fallback(txt)});
+    }else fallback(txt);
+  });
+  function fallback(txt){
+    var ta=document.createElement('textarea');ta.value=txt;ta.setAttribute('readonly','');ta.style.position='fixed';ta.style.opacity='0';document.body.appendChild(ta);ta.select();
+    var ok=false;try{ok=document.execCommand('copy')}catch(e){}
+    document.body.removeChild(ta);say(ok?'Call notes copied':'Copy blocked here: select the answers by hand');
+  }
+  var armed=false;
+  document.getElementById('resetNotes').addEventListener('click',function(){
+    var b=this;
+    if(!armed){armed=true;b.textContent='Click again to clear';setTimeout(function(){armed=false;b.textContent='Reset'},3000);return}
+    state={};save();location.reload();
+  });
+})();
+</script>
